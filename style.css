@@ -88,7 +88,7 @@
  /* a { padding:15px; font-weight:bold; float:left; } */
  a:link { color:#000000; text-decoration:none;}
  a:visited { color:#000000; }
- a:hover { color:#ff0000;}
+ a:hover { color:#327463;}
  a:active { color:#000000;}
 
 html {
@@ -131,12 +131,19 @@ html {
   line-height: 1.8em;
 }  
 .project-pic{
-  max-width:90% ;
+  max-width: 100% ;
+  height: auto;
   font-family: 'Roboto', sans-serif; 
   line-height: 1.8em;
 }
-.footer  {
+img{
+  max-width: 90% ;
+  height: auto;
+
+}
+.footer {
     font-size: 12px;
+    font-family: 'Roboto Condensed', sans-serif;
     color:rgb(133, 133, 133);
     background: rgb(255, 255, 255);
     text-align: right;
