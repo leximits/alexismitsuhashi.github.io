@@ -126,10 +126,19 @@ html {
   }  
   .project-text{
   max-width: 800px;
-  width: 90%
+  width: 90%;
   font-family: 'Roboto', sans-serif; 
   line-height: 1.8em;
 }  
+
+.project-citation{
+  max-width: 800px;
+  width: 90%;
+  font-family: 'Roboto', sans-serif; 
+  line-height: 1.8em;
+  font-size: .7em;
+  color: grey;
+}
 .project-pic{
   max-width: 100% ;
   height: auto;
@@ -148,6 +157,7 @@ img{
     background: rgb(255, 255, 255);
     text-align: right;
   }
+
 
 
   
