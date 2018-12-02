@@ -44,13 +44,11 @@
 			</div>
                 <div class="project-text">
 				
-                    <p> This project was completed for a capstone class at Inworks, a Human-Centered Design school at the University of Colorado Denver. 
+                    <p> This project was completed for a capstone class at Inworks, a Human-Centered Design 
+						school at the University of Colorado Denver. 
 
-							Access to healthy food and fresh produce is a significant indicator of health and prosperity for a community. 
-							Supermarkets are a primary resource for such foods at prices that can be affordable to families and individuals 
-							that struggle economically.
-							Unfortunately, such underserved communities can often be located in food deserts; these are areas where more than 33% of the 
-							population in a census tract lives more than one mile from a supermarket. </br></br>
+						Access to healthy food and fresh produce is a significant indicator of health and prosperity for a community. Supermarkets are a primary resource for such foods at prices that can be affordable to families and individuals that struggle economically. Unfortunately, such underserved communities can often be located in food deserts; according to the U.S. Department of Agriculture, these are areas where at least 33% of the population in a census tract lives more than one half mile from a supermarket<sup>1</sup>. According to the CDC, this “can negatively affect health outcomes”<sup>2</sup>.
+					 </br></br>
 					   
 				
 							In order to combine my two independent majors, I focused on solving the question: How can GIS help 
@@ -58,6 +56,8 @@
 							I reached out to local organizations within Denver that work towards increasing nutritional 
 							awareness and proving healthy food options for underserved neighborhoods. The two farms that 
 							I worked with are Groundwork Denver and The Growhaus. 
+
+					</br></br>
 
 							Going through the user-centered design process, I sat down with the Director of Urban 
 							Farms at Groundwork Denver and we were able to identify policy-making for food security 
@@ -76,8 +76,36 @@
 						<img src="/images/countyinset.png" class="project-pic">
 					</div>
                 <div class="project-text">
-                        <p> Median household income in the past 12 months (in 2016 inflation-adjusted dollars) was obtained from the American Community Survey 5-Year Estimates for 2012-2016 provided by the U.S. Census Bureau. Denver Food Store locations data was obtained from the City and County of Denver’s Open Data Catalog and was updated January 2018. </p>
-                    </div>
+                        <p> Median household income in the past 12 months (in 2016 inflation-adjusted dollars) was 
+							obtained from the American Community Survey 5-Year Estimates for 2012-2016 provided 
+							by the U.S. Census Bureau. Denver Food Store locations data was obtained from the City 
+							and County of Denver’s Open Data Catalog and was updated January 2018. A one mile buffer 
+							was created around each census tract and the number of supermarkets within that one mile
+							 buffer were calculated (one mile was used since this is another distance used by some
+							  USDA tools and narrowed the scope to neighborhoods most affected). The number of grocery
+							   stores within one mile was then plotted against median income of those block groups. 
+							</br>
+						</p>
+					</div>
+					<div class="project-pic">
+							<img src="/images/scatterplot.png" class="project-pic">
+						</div>
+					<div class="project-text">
+						<p>This scatterplot illustrates that increased supermarket access is correlated to income. Adding a linear regression provides that for each $5,544.28 increase in income, there is an average increase of one more supermarket within a mile of a block group. A family or individual with an income of $45,482 can on average expect to have no supermarkets within one mile of their home. 
+
+						</br></br>
+						These results quantify one aspect of food injustice in Denver. These increased distances to supermarkets perpetuate health problems and reinforce the cycle of poverty. Addressing food injustice needs to be a priority in closing wealth gaps and supporting all our citizens. Some ideas for further exploration could include looking at race or educational attainment as driving factors of access. 
+
+						</br></br>
+						</p>
+					</div>
+					<div class="project-citation">
+						<p><sup>1</sup> 	Documentation. United States Department of Agriculture Economic Research Service, https://www.ers.usda.gov/data-products/food-access-research-atlas/documentation/. Accessed 30 Nov. 2018
+						</br>
+							<sup>2</sup> 	“Food Desert”. Tip Sheets D-F. Centers for Disease Control and Prevention, https://www.cdc.gov/healthcommunication/toolstemplates/entertainmented/tips/FoodDesert.html. Accessed 30 Nov. 2018.
+
+						</p>
+					</div>
             </div>
         </div>
             
