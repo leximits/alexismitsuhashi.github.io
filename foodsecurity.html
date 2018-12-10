@@ -8,7 +8,17 @@
 		<meta name="author" content="Lexi Mits" />
 		<link rel="shortcut icon" href="favicon.png">
    		<link rel="stylesheet" type="text/css" href="style.css"> 
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:300i,400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:300i,400,700" rel="stylesheet">
+		
+		<script src="http://d3js.org/d3.v4.min.js" charset="utf-8"></script>
+		<script src="data/basemap.json"></script>
+		<script src="data/sup.json"></script>
+		<script src="data/poverty.json"></script>
+		<script src="data/ed.json"></script>
+		<script src="data/black.json"></script>
+		<script src="data/hisp.json"></script> 
+
+		<script src="toggle.js" charset="utf-8"></script>
 
     </head>
 
@@ -30,82 +40,293 @@
 				About <br>
 				<a href="mailto:alexismitsuhashi@gmail.com" target="_Blank">Contact</a>
 			</div>
-        </div>
-            
+		</div>
+	</br></br></br>
+		<div class="project-pic">
+			<img src="/images/FoodSecurityHeader.png">
+		</div>
+		<div class="minihead">
+				<h2>Food Security Minisite</h2>
+		</div>
+		<div class="minimenu">	
+			<u>Home</u> // 
+			<a href="/miniabout.html"> About </a> //
+			<a href="/background.html"> Background</a> //
+			<a href="/data.html"> Data + Resources</a>
+		</div>
 
+		<div class="project-text">
+			<p> </br></br></br>
+				This project was completed as part of a Capstone course at Inworks, 
+				a Human-Centered Design school at CU Denver. You can find more information
+				 about the 
+				 
+				 <a href="/miniabout.html"> project and methodology here </a>
+				 
+				 , or more about 
+				 <a href="/background.html"> food deserts here</a> .
+				</br>
+			</p>
+
+			<p> </br>
+				Here is an interactive visualization of the Denver area allows users to toggle on and off demographic features that are common for food deserts. 
+				<p style="font-size: 12px;color:rgb(165, 165, 165);">
+						Methodology and Sources	
+				</p>
+				</br>
+			</p>
+		</div>
+		
+
+
+	<!-- Page elements and content go here. -->
+	 <script>
+    var width = 700;
+var height = 740;
+
+
+// Create SVG
+var svg = d3.select( "body" )
+    .append( "svg" )
+    .attr( "width", width )
+    .attr( "height", height );
+
+    var g = svg.append( "g" );
+
+    var albersProjection = d3.geoAlbers()
+    .scale( 170000 )
+    .rotate( [104.978,0] )
+    .center( [0, 39.751] )
+    .translate( [width/2,height/2] );
+
+// Append empty placeholder g element to the SVG
+// g will contain geometry elements
+// Our D3 code will go here.
+
+
+    var geoPath = d3.geoPath()
+    .projection( albersProjection );
+    // Width and Height of the whole visualization
+
+
+g.selectAll( "path" )
+    .data( basemap_json.features )
+    .enter()
+    .append( "path" )
+    .attr( "fill", "#fff" )
+    .attr( "stroke", "#aaa")
+    .attr( "d", geoPath );
+
+
+var sup = svg.append( "g" );
+
+sup.selectAll( "path" )
+	.data( sup_json.features )
+	.enter()
+	.append( "path" )
+    .attr("id", "sup")
+	.attr( "fill", "black" )
+	//.attr( "stroke", "#999" )
+	.attr( "d", geoPath );   
+
+    var poverty = svg.append( "g" );
+
+poverty.selectAll( "path" )
+	.data( poverty_json.features )
+	.enter()
+	.append( "path" )
+    .attr("id", "poverty")
+	.attr( "fill", "#046ff0" )
+	//.attr( "stroke", "#e77" )
+	.attr( "d", geoPath )
+    .style("opacity", 0.4);
+
+    var ed = svg.append( "g" );
+
+ed.selectAll( "path" )
+	.data( edu_json.features )
+	.enter()
+	.append( "path" )
+    .attr("id", "ed")
+	.attr( "fill", "#f00404" )
+	//.attr( "stroke", "#e77" )
+	.attr( "d", geoPath )
+    .style("opacity", 0.4);
+
+    var black = svg.append( "g" );
+
+black.selectAll( "path" )
+	.data( black_json.features )
+	.enter()
+	.append( "path" )
+    .attr("id", "black")
+	.attr( "fill", "#4EDF43" )
+	//.attr( "stroke", "#e77" )
+	.attr( "d", geoPath )
+    .style("opacity", 0.4);
+
+    var hisp = svg.append( "g" );
+
+hisp.selectAll( "path" )
+	.data( hisp_json.features )
+	.enter()
+	.append( "path" )
+    .attr("id", "hisp")
+	.attr( "fill", "#f39c09" )
+	//.attr( "stroke", "#e77" )
+	.attr( "d", geoPath )
+    .style("opacity", 0.4);
+
+svg.append("text")
+	.attr("x", 5)             
+	.attr("y", 30)    
+	.attr("class", "legend")
+	.style("fill", "grey")        
+	.text("Click to toggle on/off:");   
+
+
+
+svg.append("text")
+	.attr("x", 175)             
+	.attr("y", 30)    
+	.attr("class", "legend")
+    .attr("fill", "black")
+	.style("fill", "black")        
+	.on("click", function(){
+		// Determine if current line is visible
+		var active   = sup.active ? false : true,
+		  newOpacity = active ? 0 : 1;
+		// Hide or show the elements
+		d3.selectAll("#sup").style("opacity", newOpacity);
+		// Update whether or not the elements are active
+		sup.active = active;
+	})
+	.text("Supermarkets");
+
+
+ svg.append("text")
+	.attr("x", 290)             
+	.attr("y", 30)    
+	.attr("class", "legend")
+	.style("fill", "#046ff0")        
+	.on("click", function(){
+		// Determine if current line is visible
+		var active   = poverty.active ? false : true,
+		  newOpacity = active ? 0 : 0.4;
+		// Hide or show the elements
+		d3.selectAll("#poverty").style("opacity", newOpacity);
+		// Update whether or not the elements are active
+		poverty.active = active;
+	})
+	.text("Poverty");   
+
+svg.append("text")
+	.attr("x", 360)             
+	.attr("y", 30)    
+	.attr("class", "legend")
+	.style("fill", "#f00404")        
+	.on("click", function(){
+		// Determine if current line is visible
+		var active   = ed.active ? false : true,
+		  newOpacity = active ? 0 : 0.4;
+		// Hide or show the elements
+		d3.selectAll("#ed").style("opacity", newOpacity);
+		// Update whether or not the elements are active
+		ed.active = active;
+	})
+	.text("Education");
+
+svg.append("text")
+	.attr("x", 450)             
+	.attr("y", 30)    
+	.attr("class", "legend")
+	.style("fill", "#4EDF43")        
+	.on("click", function(){
+		// Determine if current line is visible
+		var active   = black.active ? false : true,
+		  newOpacity = active ? 0 : 0.4;
+		// Hide or show the elements
+		d3.selectAll("#black").style("opacity", newOpacity);
+		// Update whether or not the elements are active
+		black.active = active;
+	})
+	.text("Af. Am.");
+
+svg.append("text")
+	.attr("x", 520)             
+	.attr("y", 30)    
+	.attr("class", "legend")
+	.style("fill", "#f39c09")        
+	.on("click", function(){
+		// Determine if current line is visible
+		var active   = hisp.active ? false : true,
+		  newOpacity = active ? 0 : 0.4;
+		// Hide or show the elements
+		d3.selectAll("#hisp").style("opacity", newOpacity);
+		// Update whether or not the elements are active
+		hisp.active = active;
+	})
+	.text("Latinx");
+
+
+
+
+	</script>
+
+
+
+
+		
         <div class="wrapper">
             <div class="project-layout">
-                <div class="project-title">
-                    <h1> </br></br>Mapping Gentrification and Food Insecurity</h1>
-				</div>
 			
-			<div class="project-pic">
-					<img src="/images/FoodSecurityHeader.png">
-			</div>
-                <div class="project-text">
-				
-                    <p> This project was completed for a capstone class at Inworks, a Human-Centered Design 
-						school at the University of Colorado Denver. 
+					<div class="project-text">
+							<p> 
+									This map shows median incomes in the Denver area and supermarket locations.  The three labelled neighborhoods are particularly distant from supermarkets and many in these communities struggle financially. I met with two organizations that work to supply fresh produce and food education to residents. Both Groundwork Denver and The Growhaus focus on amplifying the voices of these neighborhoods and making health and well-being a possibility for all. <p style="font-size: 12px;color:rgb(165, 165, 165);">
+										Methodology and Sources	
+								</p>	
+						
+							</p>
+					</div>
 
-						Access to healthy food and fresh produce is a significant indicator of health and prosperity for a community. Supermarkets are a primary resource for such foods at prices that can be affordable to families and individuals that struggle economically. Unfortunately, such underserved communities can often be located in food deserts; according to the U.S. Department of Agriculture, these are areas where at least 33% of the population in a census tract lives more than one half mile from a supermarket<sup>1</sup>. According to the CDC, this “can negatively affect health outcomes”<sup>2</sup>.
-					 </br></br>
-					   
-				
-							In order to combine my two independent majors, I focused on solving the question: How can GIS help 
-							organizations that address food insecurity? To answer this question and create an MVP, 
-							I reached out to local organizations within Denver that work towards increasing nutritional 
-							awareness and proving healthy food options for underserved neighborhoods. The two farms that 
-							I worked with are Groundwork Denver and The Growhaus. 
 
-					</br></br>
-
-							Going through the user-centered design process, I sat down with the Director of Urban 
-							Farms at Groundwork Denver and we were able to identify policy-making for food security 
-							as an area that could benefit from visual GIS aids that illustrate a lack of food availability 
-							and changes in demographics that impact healthy food availability. Through working with 
-							another member of the Groundwork team and looking at studies of gentrification indicators,
-							 we identified rising incomes and rental rates as some of the largest consistent indicators
-							 of gentrification.  
-                            
-                    </p>
-                </div>
                 <div class="project-pic">
                     <img src="/images/Prototype2.png">
 				</div>
+
+				<div class="project-text">
+						<p> </br>
+							Here is an inset highlighting that significant food desert. Obtaining healthy food in this region can be difficult, and residents often turn to convenience stores for a closer food source. This leads to health problems and perpetuates the cycle of poverty. <p style="font-size: 12px;color:rgb(165, 165, 165);">
+									Methodology and Sources	
+							</p>	
+					
+						</p>
+					</div>
+
 				<div class="project-pic">
 						<img src="/images/countyinset.png" class="project-pic">
 					</div>
                 <div class="project-text">
-                        <p> Median household income in the past 12 months (in 2016 inflation-adjusted dollars) was 
-							obtained from the American Community Survey 5-Year Estimates for 2012-2016 provided 
-							by the U.S. Census Bureau. Denver Food Store locations data was obtained from the City 
-							and County of Denver’s Open Data Catalog and was updated January 2018. A one mile buffer 
-							was created around each census tract and the number of supermarkets within that one mile
-							 buffer were calculated (one mile was used since this is another distance used by some
-							  USDA tools and narrowed the scope to neighborhoods most affected). The number of grocery
-							   stores within one mile was then plotted against median income of those block groups. 
-							</br>
+                        <p> 
 						</p>
 					</div>
+
+					<div class="project-text">
+							<p> </br>
+								A linear regression comparing median income by block group with number of supermarkets within 1 mile of a block group finds that, on average, a household making $45,482 can expect <b> zero </b> supermarkets within one mile of their house. 
+								<p style="font-size: 12px;color:rgb(165, 165, 165);">
+										Methodology and Sources	
+								</p>
+							
+							</p>
+						</div>
+						
+
 					<div class="project-pic">
 							<img src="/images/scatterplot.png" class="project-pic">
 						</div>
-					<div class="project-text">
-						<p>This scatterplot illustrates that increased supermarket access is correlated to income. Adding a linear regression provides that for each $5,544.28 increase in income, there is an average increase of one more supermarket within a mile of a block group. A family or individual with an income of $45,482 can on average expect to have no supermarkets within one mile of their home. This is a statistically significant relationship with a p-value of less than 0.0001. 
-
-						</br></br>
-						These results quantify one aspect of food injustice in Denver. These increased distances to supermarkets perpetuate health problems and reinforce the cycle of poverty. Addressing food injustice needs to be a priority in closing wealth gaps and supporting all our citizens. Some ideas for further exploration could include looking at race or educational attainment as driving factors of access. 
-
-						</br></br>
-						</p>
-					</div>
-					<div class="project-citation">
-						<p><sup>1</sup> 	Documentation. United States Department of Agriculture Economic Research Service, https://www.ers.usda.gov/data-products/food-access-research-atlas/documentation/. Accessed 30 Nov. 2018
-						</br>
-							<sup>2</sup> 	“Food Desert”. Tip Sheets D-F. Centers for Disease Control and Prevention, https://www.cdc.gov/healthcommunication/toolstemplates/entertainmented/tips/FoodDesert.html. Accessed 30 Nov. 2018.
-
-						</p>
-					</div>
+				
+					
             </div>
         </div>
             
