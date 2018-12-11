@@ -11,12 +11,12 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:300i,400,700" rel="stylesheet">
 		
 		<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
-		<script src="/data/basemap.json"></script>
-		<script src="/data/sup.json"></script>
-		<script src="/data/poverty.json"></script>
-		<script src="/data/ed.json"></script>
-		<script src="/data/black.json"></script>
-		<script src="/data/hisp.json"></script> 
+		<script src="data/basemap.json"></script>
+		<script src="data/sup.json"></script>
+		<script src="data/poverty.json"></script>
+		<script src="data/ed.json"></script>
+		<script src="data/black.json"></script>
+		<script src="data/hisp.json"></script> 
 
 		<script src="toggle.js" charset="utf-8"></script>
 
@@ -50,8 +50,7 @@
 		</div>
 		<div class="minimenu">	
 			<u>Home</u> // 
-			<a href="/miniabout.html"> About </a> //
-			<a href="/background.html"> Background</a> //
+			<a href="/miniabout.html"> About + Background</a> //
 			<a href="/data.html"> Data + Resources</a>
 		</div>
 
@@ -69,9 +68,14 @@
 			</p>
 
 			<p> </br>
-				Here is an interactive visualization of the Denver area allows users to toggle on and off demographic features that are common for food deserts. 
+				According to the U.S. Department of Agriculture, food deserts are neighborhoods where at least 33% of the population in an urban census tract lives more than one half mile from a supermarket. I worked with local organizations addressing food insecurity to identify a need for visuals illustrating the severity of food insufficiency and the demographic factors tied to that inequality. Fatuma at Groundwork Denver sums up this need well:
+				<p style="margin-left: 3em;font-size:11pt;" > <b>“[Food deserts] are ubiquitious and institutionalized. Food is such a personalized thing and, in these situations, we are always telling people to change their eating habits. It’s helpful to them to see that this isn’t just happening in their neighborhood – this is happening to their Latino brothers and sisters in Chicago, too. It’s other communities that look like them and are dealing with the same problems. 
+						This matters on both sides of the issue. Policy makers need to see visuals showing the common indicators of this institutional problem.”
+					</b></p>
+
+				I decided to create those visuals. Here is an interactive visualization of the Denver area allows users to toggle on and off demographic features that are common for food deserts. 
 				<p style="font-size: 12px;color:rgb(165, 165, 165);">
-						Methodology and Sources	
+					<a href="/miniabout.html#interactive">	Methodology and Sources	</a>
 				</p>
 				</br>
 			</p>
@@ -187,7 +191,7 @@ svg.append("text")
 
 
 svg.append("text")
-	.attr("x", 175)             
+	.attr("x", 160)             
 	.attr("y", 30)    
 	.attr("class", "legend")
     .attr("fill", "black")
@@ -205,7 +209,7 @@ svg.append("text")
 
 
  svg.append("text")
-	.attr("x", 290)             
+	.attr("x", 270)             
 	.attr("y", 30)    
 	.attr("class", "legend")
 	.style("fill", "#046ff0")        
@@ -218,10 +222,10 @@ svg.append("text")
 		// Update whether or not the elements are active
 		poverty.active = active;
 	})
-	.text("Poverty");   
+	.text("Poverty (>22%)");   
 
 svg.append("text")
-	.attr("x", 360)             
+	.attr("x", 390)             
 	.attr("y", 30)    
 	.attr("class", "legend")
 	.style("fill", "#f00404")        
@@ -234,11 +238,11 @@ svg.append("text")
 		// Update whether or not the elements are active
 		ed.active = active;
 	})
-	.text("Education");
+	.text("Education (<75% high school graduates)");
 
 svg.append("text")
-	.attr("x", 450)             
-	.attr("y", 30)    
+	.attr("x", 160)             
+	.attr("y", 60)    
 	.attr("class", "legend")
 	.style("fill", "#4EDF43")        
 	.on("click", function(){
@@ -250,11 +254,11 @@ svg.append("text")
 		// Update whether or not the elements are active
 		black.active = active;
 	})
-	.text("Af. Am.");
+	.text("Black/African American (>15%)");
 
 svg.append("text")
-	.attr("x", 520)             
-	.attr("y", 30)    
+	.attr("x", 380)             
+	.attr("y", 60)    
 	.attr("class", "legend")
 	.style("fill", "#f39c09")        
 	.on("click", function(){
@@ -266,10 +270,16 @@ svg.append("text")
 		// Update whether or not the elements are active
 		hisp.active = active;
 	})
-	.text("Latinx");
+	.text("Latino (>40%)");
 
 
 
+svg.append("image")
+   .attr("xlink:href", "images/highways.svg")
+   .attr("x", -24)
+   .attr("y", 115)
+   .attr("height", "580px")
+   .attr("width", "680px");
 
 	</script>
 
@@ -282,8 +292,9 @@ svg.append("text")
 			
 					<div class="project-text">
 							<p> 
-									This map shows median incomes in the Denver area and supermarket locations.  The three labelled neighborhoods are particularly distant from supermarkets and many in these communities struggle financially. I met with two organizations that work to supply fresh produce and food education to residents. Both Groundwork Denver and The Growhaus focus on amplifying the voices of these neighborhoods and making health and well-being a possibility for all. <p style="font-size: 12px;color:rgb(165, 165, 165);">
-										Methodology and Sources	
+									This map shows median incomes in the Denver area and supermarket locations.  The three labelled neighborhoods are particularly distant from supermarkets and many in these communities struggle financially. I met with two organizations that work to supply fresh produce and food education to residents. Both Groundwork Denver and The Growhaus focus on amplifying the voices of these neighborhoods and making health and well-being a possibility for all. 
+									<p style="font-size: 12px;color:rgb(165, 165, 165);">
+											<a href="/miniabout.html#income">	Methodology and Sources	</a>
 								</p>	
 						
 							</p>
@@ -296,8 +307,9 @@ svg.append("text")
 
 				<div class="project-text">
 						<p> </br>
-							Here is an inset highlighting that significant food desert. Obtaining healthy food in this region can be difficult, and residents often turn to convenience stores for a closer food source. This leads to health problems and perpetuates the cycle of poverty. <p style="font-size: 12px;color:rgb(165, 165, 165);">
-									Methodology and Sources	
+							Here is an inset highlighting that significant food desert. Obtaining healthy food in this region can be difficult, and residents often turn to convenience stores for a closer food source. This leads to health problems and perpetuates the cycle of poverty. 
+							<p style="font-size: 12px;color:rgb(165, 165, 165);">
+									<a href="/miniabout.html#income">	Methodology and Sources	</a>
 							</p>	
 					
 						</p>
@@ -315,7 +327,7 @@ svg.append("text")
 							<p> </br>
 								A linear regression comparing median income by block group with number of supermarkets within 1 mile of a block group finds that, on average, a household making $45,482 can expect <b> zero </b> supermarkets within one mile of their house. 
 								<p style="font-size: 12px;color:rgb(165, 165, 165);">
-										Methodology and Sources	
+										<a href="/miniabout.html#scatter">	Methodology and Sources	</a>
 								</p>
 							
 							</p>
@@ -326,7 +338,17 @@ svg.append("text")
 							<img src="/images/scatterplot.png" class="project-pic">
 						</div>
 				
-					
+					<div class="project-text">
+						<p> 
+							The data and resources used for this project as well as other reccomended 
+							resources have been compiled <a href="/miniabout.html"> here </a>.  
+							Hopefully they can help others interested in exploring the food desert situation and finding solutions. 
+
+							 
+							</br>
+						</br>
+						</p>
+					</div>
             </div>
         </div>
             
