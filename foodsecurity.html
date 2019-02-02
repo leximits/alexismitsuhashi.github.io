@@ -9,7 +9,6 @@
 		<link rel="shortcut icon" href="favicon.png">
    		<link rel="stylesheet" type="text/css" href="style.css"> 
 		<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Roboto:300i,400,700" rel="stylesheet">
-		
 		<script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
 		<script src="data/basemap.json"></script>
 		<script src="data/sup.json"></script>
@@ -17,73 +16,65 @@
 		<script src="data/ed.json"></script>
 		<script src="data/black.json"></script>
 		<script src="data/hisp.json"></script> 
-
 		<script src="toggle.js" charset="utf-8"></script>
-
     </head>
-
 	<body>
-		<div class="wrapper">
-			<div class= "name"> 
-				<a href="index.html">
-					Alexis Mitsuhashi
-				</a>
+		<header class="header">
+			<a class="name" href="index.html">ALEXIS <span class="last-name">MITSUHASHI</span></a>
+			<div class="role-group"> 
+				<p class="role">UX Designer</p>
+				<p class="role">Data Visualizer</p>
+				<p class="role">Illustrator</p>
 			</div>
-			<div class= "header role"> 
-			UX Designer </br>
-			Data Visualizer </br>
-			Illustrator 
-					
-			</div>
-		
-			<div class= "header contact">
-				<a href="about.html">About</a> <br>
+			<div class="contact">
+				<a href="./about.html">About</a>
 				<a href="mailto:alexismitsuhashi@gmail.com" target="_Blank">Contact</a>
 			</div>
-		</div>
-	</br></br></br>
-		<div class="project-pic">
-			<img src="/images/FoodSecurityHeader.png">
-		</div>
-		<div class="minihead">
-				<h2>Food Security Minisite</h2>
-		</div>
-		<div class="minimenu">	
-			<u>Home</u> // 
-			<a href="/miniabout.html"> About + Background</a> //
-			<a href="/data.html"> Data + Resources</a>
-		</div>
+		</header>
+		<div class="main">
+			<div class="wrapper">
+				<div class="project-pic">
+					<img src="./images/FoodSecurityHeader.png">
+				</div>
+				<div class="minihead">
+						<h2>Food Security Minisite</h2>
+				</div>
+				<div class="minimenu">	
+					<u>Home</u> // 
+					<a href="/miniabout.html"> About + Background</a> //
+					<a href="/data.html"> Data + Resources</a>
+				</div>
+				<div class="project-text">
+					<p> </br></br></br>
+						This project was completed as part of a Capstone course at Inworks, 
+						a Human-Centered Design school at CU Denver. You can find more information
+						about the 
+						
+						<a href="/miniabout.html"> project and methodology here </a>
+						
+						, or more about 
+						<a href="/background.html"> food deserts here</a> .
+						</br>
+					</p>
 
-		<div class="project-text">
-			<p> </br></br></br>
-				This project was completed as part of a Capstone course at Inworks, 
-				a Human-Centered Design school at CU Denver. You can find more information
-				 about the 
-				 
-				 <a href="/miniabout.html"> project and methodology here </a>
-				 
-				 , or more about 
-				 <a href="/background.html"> food deserts here</a> .
-				</br>
-			</p>
+					<p> </br>
+						According to the U.S. Department of Agriculture, food deserts are neighborhoods where at least 33% of the population in an urban census tract lives more than one half mile from a supermarket. I worked with local organizations addressing food insecurity to identify a need for visuals illustrating the severity of food insufficiency and the demographic factors tied to that inequality. Fatuma at Groundwork Denver sums up this need well:
+						<p style="margin-left: 3em;font-size:11pt;" > <b>“[Food deserts] are ubiquitious and institutionalized. Food is such a personalized thing and, in these situations, we are always telling people to change their eating habits. It’s helpful to them to see that this isn’t just happening in their neighborhood – this is happening to their Latino brothers and sisters in Chicago, too. It’s other communities that look like them and are dealing with the same problems. 
+								This matters on both sides of the issue. Policy makers need to see visuals showing the common indicators of this institutional problem.”
+							</b></p>
 
-			<p> </br>
-				According to the U.S. Department of Agriculture, food deserts are neighborhoods where at least 33% of the population in an urban census tract lives more than one half mile from a supermarket. I worked with local organizations addressing food insecurity to identify a need for visuals illustrating the severity of food insufficiency and the demographic factors tied to that inequality. Fatuma at Groundwork Denver sums up this need well:
-				<p style="margin-left: 3em;font-size:11pt;" > <b>“[Food deserts] are ubiquitious and institutionalized. Food is such a personalized thing and, in these situations, we are always telling people to change their eating habits. It’s helpful to them to see that this isn’t just happening in their neighborhood – this is happening to their Latino brothers and sisters in Chicago, too. It’s other communities that look like them and are dealing with the same problems. 
-						This matters on both sides of the issue. Policy makers need to see visuals showing the common indicators of this institutional problem.”
-					</b></p>
-
-				I decided to create those visuals. Here is an interactive visualization of the Denver area allows users to toggle on and off demographic features that are common for food deserts. 
-				<p style="font-size: 12px;color:rgb(165, 165, 165);">
-					<a href="/miniabout.html#interactive">	Methodology and Sources	</a>
-				</p>
-				</br>
-			</p>
-		</div>
+						I decided to create those visuals. Here is an interactive visualization of the Denver area allows users to toggle on and off demographic features that are common for food deserts. 
+						<p style="font-size: 12px;color:rgb(165, 165, 165);">
+							<a href="/miniabout.html#interactive">	Methodology and Sources	</a>
+						</p>
+						</br>
+					</p>
+				</div>
 		
 
 
 	<!-- Page elements and content go here. -->
+	
 	 <script>
     var width = 700;
 var height = 740;
@@ -287,14 +278,13 @@ svg.append("image")
 
 
 		
-        <div class="wrapper">
             <div class="project-layout">
 			
 					<div class="project-text">
 							<p> 
 									This map shows median incomes in the Denver area and supermarket locations.  The three labelled neighborhoods are particularly distant from supermarkets and many in these communities struggle financially. I met with two organizations that work to supply fresh produce and food education to residents. Both Groundwork Denver and The Growhaus focus on amplifying the voices of these neighborhoods and making health and well-being a possibility for all. 
 									<p style="font-size: 12px;color:rgb(165, 165, 165);">
-											<a href="/miniabout.html#income">	Methodology and Sources	</a>
+											<a href="./miniabout.html#income">	Methodology and Sources	</a>
 								</p>	
 						
 							</p>
@@ -302,21 +292,21 @@ svg.append("image")
 
 
                 <div class="project-pic">
-                    <img src="/images/Prototype2.png">
+                    <img src="./images/Prototype2.png">
 				</div>
 
 				<div class="project-text">
 						<p> </br>
 							Here is an inset highlighting that significant food desert. Obtaining healthy food in this region can be difficult, and residents often turn to convenience stores for a closer food source. This leads to health problems and perpetuates the cycle of poverty. 
 							<p style="font-size: 12px;color:rgb(165, 165, 165);">
-									<a href="/miniabout.html#income">	Methodology and Sources	</a>
+									<a href="./miniabout.html#income">	Methodology and Sources	</a>
 							</p>	
 					
 						</p>
 					</div>
 
 				<div class="project-pic">
-						<img src="/images/countyinset.png" class="project-pic">
+						<img src="./images/countyinset.png" class="project-pic">
 					</div>
                 <div class="project-text">
                         <p> 
@@ -327,7 +317,7 @@ svg.append("image")
 							<p> </br>
 								A linear regression comparing median income by block group with number of supermarkets within 1 mile of a block group finds that, on average, a household making $45,482 can expect <b> zero </b> supermarkets within one mile of their house. 
 								<p style="font-size: 12px;color:rgb(165, 165, 165);">
-										<a href="/miniabout.html#scatter">	Methodology and Sources	</a>
+										<a href="./miniabout.html#scatter">	Methodology and Sources	</a>
 								</p>
 							
 							</p>
@@ -335,7 +325,7 @@ svg.append("image")
 						
 
 					<div class="project-pic">
-							<img src="/images/scatterplot.png" class="project-pic">
+							<img src="./images/scatterplot.png" class="project-pic">
 						</div>
 				
 					<div class="project-text">
@@ -350,10 +340,9 @@ svg.append("image")
 						</p>
 					</div>
             </div>
-        </div>
             
 
-		
+			</div>
  	</body>
 
  	<footer>

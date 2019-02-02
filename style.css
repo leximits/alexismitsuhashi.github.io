@@ -1,32 +1,58 @@
-
-
-.wrapper {
-  @include flexbox();
-}
-
-.item {
+/* .item {
   @include flex(1 200px);
   @include order(2);
+} */
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
+.wrapper-spacing {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+}
 
 .wrapper {
+  width: 40%;
+}
+
+.header {
+  width: 10%;
+  height: 100vh;
+  font-family: 'Roboto Condensed', Helvetica,sans-serif;
+  margin: 35vh 3% 0 17%;
+  position: fixed;
+}
+
+.name {
+  font-weight: bolder;
+  color:black !important;
+  font-size: 28px;
+  line-height: 25px;
+}
+
+.name:hover {
+  opacity: .6;
+}
+
+.last-name {
+  color: #56b5ed;
+}
+
+.role-group {
+  margin: 20px 0 20px 0;
+}
+
+.role {
+  margin: 0;
+}
+
+.contact {
   display: flex;
-  flex-flow: row wrap;
-}
-
-.wrapper > * { 
-  padding: 10px;
-  flex: 1 100%;
-}
-
-@media all and (min-width: 300px) {
-  
-  .role { order: 2; } 
-  .header { order: 3; }
-  .projects { order: 4; }
-  .footer  { order: 5; }
+  flex-direction: column;
 }
 
 /* start styling*/
@@ -34,56 +60,75 @@
  /* a { padding:15px; font-weight:bold; float:left; } */
  a:link, a:visited, a:active { color:#9c9c9c; text-decoration:none;}
  /* a:visited { color:#6d6d6d; } */
- a:hover { color:#2fac8c;}
+a:hover {
+  color:#2fac8c;
+}
  /*a:active { color:#6b6b6b;}*/
 
 html {
-    font-family: "Roboto Condensed", Helvetica, sans-serif;
-    font-size: 16px;
-    
-}
- .name{
-   font-weight: bold;
-   text-decoration: none;
-   color:black !important;
-   transition: all .25s ease-in-out;
-   
- }
-.role{
-  font-family: 'Roboto Condensed', Helvetica,sans-serif;
+  font-family: "Roboto Condensed", Helvetica, sans-serif;
+  font-size: 16px;
 }
 
-.contact{
-  font-family: 'Roboto Condensed', Helvetica,sans-serif; 
-}
-.header {
+.minihead {
+  font-family: 'Roboto', Helvetica,sans-serif;
   background: rgb(255, 255, 255);
   text-decoration: none;
   color:black;
   text-align: left;
-  }
+}
 
-
-  .minihead {
-    font-family: 'Roboto', Helvetica,sans-serif;
-    background: rgb(255, 255, 255);
-    text-decoration: none;
-    color:black;
-    text-align: left;
-    }
-
-  .project-title{
-    max-width: 800px;
-    font-family: 'Roboto', Helvetica,sans-serif; 
-  }  
-  .project-text{
+.project-title {
   max-width: 800px;
-  width: 90%;
+  font-family: 'Roboto', Helvetica,sans-serif; 
+}  
+
+.project-text {
+  width: 100%;
   font-family: 'Roboto', Helvetica,sans-serif; 
   line-height: 1.8em;
 }  
 
-.project-citation{
+.project-pic {
+  max-width: 100%;
+  margin: 10px 0 10px 0;
+}
+
+.selected-art-pic {
+  
+}
+
+.brand-img-top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.brand-img-bottom-container {
+  display: flex;
+  justify-content: center;
+}
+
+.brand-img {
+  width: 32%;
+  height: 17rem;
+}
+
+.brand-img-two {
+  width: 30%;
+  height: 15rem;
+  margin-left: 30px;
+}
+
+.brand-img-bottom {
+  width: 75%;
+  height: 25rem;
+  margin-bottom: 10px;
+  padding-right: 20px;
+}
+
+.project-citation {
   max-width: 800px;
   width: 90%;
   font-family: 'Roboto', Helvetica,sans-serif; 
@@ -91,24 +136,29 @@ html {
   font-size: .7em;
   color: grey;
 }
-.project-pic{
-  max-width: 800px ;
-  height: auto;
-  font-family: 'Roboto', Helvetica,sans-serif; 
-  line-height: 1.8em;
-}
-img{
-  max-width: 90% ;
-  height: auto;
+
+.robo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-div{
-  max-width: 100%;
+.project-pic-robot {
+  margin-top: 10px;
+  width: 33%;
 }
+
 .footer {
-    font-size: 12px;
-    font-family: 'Roboto Condensed', Helvetica,sans-serif;
-    color:rgb(133, 133, 133);
-    background: rgb(255, 255, 255);
-    text-align: right;
-  }
+  font-size: 12px;
+  font-family: 'Roboto Condensed', Helvetica,sans-serif;
+  color:rgb(133, 133, 133);
+  background: rgb(255, 255, 255);
+  text-align: right;
+}
+/* 
+@media all and (min-width: 300px) {
+  .role { order: 2; } 
+  .header { order: 3; }
+  .projects { order: 4; }
+  .footer  { order: 5; }
+} */
