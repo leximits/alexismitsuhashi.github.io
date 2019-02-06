@@ -84,11 +84,38 @@ html {
   font-family: 'Roboto', Helvetica,sans-serif; 
 }  
 
+.quote{
+  width: 100%;
+  font-family: 'Roboto', Helvetica,sans-serif; 
+  line-height: 1.3em;
+  font-size: 11pt;
+  margin-left: 3em;
+font-weight: bold;
+
+}
 .project-text {
   width: 100%;
   font-family: 'Roboto', Helvetica,sans-serif; 
-  line-height: 1.8em;
+  line-height: 1.7em;
 }  
+
+.interactive{
+ margin-top: 30px;
+}
+
+.project-nav-previous{
+margin-top: 30px;
+float: left;
+width: 50%;
+text-decoration: none;
+}
+
+.project-nav-next{
+margin-top: 30px;
+float: right;
+width: 50%;
+text-decoration: none;
+}
 
 .project-pic {
   width: 100%;
