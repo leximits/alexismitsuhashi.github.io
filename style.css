@@ -130,6 +130,7 @@ text-decoration: none;
 
 .selected-art-pic {
   max-width: 100%;
+  justify-content: center;
 }
 
 .brand-img-top-container {
