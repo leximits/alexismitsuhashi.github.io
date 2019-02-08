@@ -131,6 +131,7 @@ text-decoration: none;
 .selected-art-pic {
   max-width: 100%;
   justify-content: center;
+  max-height: 75vh;
 }
 
 .brand-img-top-container {
@@ -209,5 +210,9 @@ text-decoration: none;
   .wrapper-spacing, .wrapper {
     width: 100%;
     height: auto;
+  }
+
+  .selected-art-pic {
+    max-height: 75vh;
   }
 }
