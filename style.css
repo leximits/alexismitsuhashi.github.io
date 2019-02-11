@@ -1,8 +1,3 @@
-/* .item {
-  @include flex(1 200px);
-  @include order(2);
-} */
-
 .main {
   display: flex;
   flex-direction: column;
@@ -62,15 +57,14 @@ font-weight: bold;
   flex-direction: column;
 }
 
-/* start styling*/
+a:link, a:visited, a:active { 
+  color:#9c9c9c; 
+  text-decoration:none;
+}
 
- /* a { padding:15px; font-weight:bold; float:left; } */
- a:link, a:visited, a:active { color:#9c9c9c; text-decoration:none;}
- /* a:visited { color:#6d6d6d; } */
 a:hover {
   color:#2fac8c;
 }
- /*a:active { color:#6b6b6b;}*/
 
 html {
   font-family: "Roboto Condensed", Helvetica, sans-serif;
@@ -115,20 +109,6 @@ font-weight: bold;
   width: 100%;
   justify-content: space-between;
 }
-
-/* .project-nav-previous{
-margin-top: 30px;
-float: left;
-width: 50%;
-text-decoration: none;
-}
-
-.project-nav-next{
-margin-top: 30px;
-float: right;
-width: 50%;
-text-decoration: none;
-} */
 
 .project-pic {
   width: 100%;
@@ -198,13 +178,6 @@ text-decoration: none;
   background: rgb(255, 255, 255);
   text-align: right;
 }
-/* 
-@media all and (min-width: 300px) {
-  .role { order: 2; } 
-  .header { order: 3; }
-  .projects { order: 4; }
-  .footer  { order: 5; }
-} */
 
 @media screen and (max-width: 1200px) {
   .header {
