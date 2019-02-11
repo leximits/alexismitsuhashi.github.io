@@ -109,7 +109,14 @@ font-weight: bold;
  margin-top: 30px;
 }
 
-.project-nav-previous{
+.project-nav {
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* .project-nav-previous{
 margin-top: 30px;
 float: left;
 width: 50%;
@@ -121,7 +128,7 @@ margin-top: 30px;
 float: right;
 width: 50%;
 text-decoration: none;
-}
+} */
 
 .project-pic {
   width: 100%;
@@ -159,7 +166,7 @@ text-decoration: none;
 
 .brand-img-bottom {
   width: 75%;
-  height: auto;
+  height: 40vh;
   margin-bottom: 10px;
   padding-right: 20px;
 }
