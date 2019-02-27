@@ -204,7 +204,11 @@ font-weight: bold;
     font-size: 36px;
   }
 
-  
+  p {
+    margin: 1em 0 1em 0;
+
+
+  }
   .name {
     font-weight: bolder;
     color:black !important;
