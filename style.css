@@ -122,6 +122,11 @@ font-weight: bold;
 
 }
 
+.social-icon{
+  max-width: 4vh;
+  margin: 2px;
+}
+
 .selected-art-pic {
   max-width: 100%;
   justify-content: center;
