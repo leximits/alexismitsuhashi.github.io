@@ -117,6 +117,11 @@ font-weight: bold;
   margin: 10px 0 10px 0;
 }
 
+.cartoon-portrait{
+  max-height: 30vh;
+
+}
+
 .selected-art-pic {
   max-width: 100%;
   justify-content: center;
