@@ -184,10 +184,29 @@ font-weight: bold;
   .header {
     position: relative;
     text-align: center;
-    height: 20vh;
-    margin: 0;
+    height: 330px;
+    margin: 3em 0 0 0;
     width: 100%;
   }
+
+  .role-group, .contact {
+    font-size: 36px;
+  }
+
+  
+  .name {
+    font-weight: bolder;
+    color:black !important;
+    font-size: 45px;
+    line-height: 25px;
+  }
+
+    .project-text{
+      line-height: 1.9em;
+      font-size: 13px;
+    }
+
+
 
   .wrapper-spacing, .wrapper {
     width: 100%;
